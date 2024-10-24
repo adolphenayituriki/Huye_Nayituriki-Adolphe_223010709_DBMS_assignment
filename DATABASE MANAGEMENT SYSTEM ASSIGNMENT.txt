@@ -1,0 +1,300 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 59
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++-----------------------------+
+| Database                    |
++-----------------------------+
+| information_schema          |
+| mysql                       |
+| performance_schema          |
+| rugero_company_ltd_database |
+| ruhande                     |
+| sys                         |
+| ur                          |
+| ur_student                  |
++-----------------------------+
+8 rows in set (0.00 sec)
+
+mysql> use ruhande;
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_ruhande |
++-------------------+
+| ngoma             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select *from ngoma;
+ERROR 1146 (42S02): Table 'ruhande.ngoma' doesn't exist
+mysql> show tables;
++-------------------+
+| Tables_in_ruhande |
++-------------------+
+| ngoma             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select *from ngoma;
+Empty set (0.00 sec)
+
+mysql> insert into ngoma(1990,'Muhirwa','John','Male','South','Huye','Nyamata','Rugezi','muhirwajohn@gmail.com','0788809899');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1990,'Muhirwa','John','Male','South','Huye','Nyamata','Rugezi','muhirwajohn@gmai' at line 1
+
+mysql> insert into ngoma value('1990','Muhirwa','John','Male','South','Huye','Nyamata','Rugezi','muhirwajohn@gmailcom','0788809899');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into ngoma value('1957','Kalisa','Bosco','Male','South','Huye','Karama','Mubenzi','kalisabosco@gmailcom','072234219');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into ngoma value('1957','Uwera','Annetty','Male','Female','Huye','Ngoma','Tumba','uweraannettyo@gmailcom','078881098');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into ngoma value('1957','Keza','Angelique','Female','South','Huye','Ngoma','Rango','kezaangeliqueo@gmailcom','0780912321');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+----------+----------+---------+---------+----------------------+------------------+
+| Id   | First_Name | Last_Name | Gender | Province | District | Sector  | Cell    | Email                | Telephone_Number |
++------+------------+-----------+--------+----------+----------+---------+---------+----------------------+------------------+
+| 1990 | Muhirwa    | John      | Male   | South    | Huye     | Nyamata | Rugezi  | muhirwajohn@gmailcom | 0788809899       |
+| 1990 | Muhirwa    | John      | Male   | South    | Huye     | Nyamata | Rugezi  | muhirwajohn@gmailcom | 0788809899       |
+| 1957 | Kalisa     | Bosco     | Male   | South    | Huye     | Karama  | Mubenzi | kalisabosco@gmailcom | 072234219        |
+| 1957 | Uwera      | Annetty   | Male   | Female   | Huye     | Ngoma   | Tumba   | uweraannettyo@gmailc | 078881098        |
+| 1957 | Keza       | Angelique | Female | South    | Huye     | Ngoma   | Rango   | kezaangeliqueo@gmail | 0780912321       |
++------+------------+-----------+--------+----------+----------+---------+---------+----------------------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into ngoma value('1800','Tuyizere','Alex','Male','West','Rubavu','Karenge','Mukoto','tuyizerealex@gmailcom','0790989041');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into ngoma value('2008','Muremyi','Anaclet','Male','Kigali','Gasabo','Murambi','cyabingo','muremyianaclet@gmailcom','0789091211');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> insert into ngoma value('2016','Murenzi','Annah','Female','Nyagatare','Kamoni','Karera','Rwesero','annahmurenzi@gmailcom','0730134009');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+-----------+----------+---------+----------+----------------------+------------------+
+| Id   | First_Name | Last_Name | Gender | Province  | District | Sector  | Cell     | Email                | Telephone_Number |
++------+------------+-----------+--------+-----------+----------+---------+----------+----------------------+------------------+
+| 1990 | Muhirwa    | John      | Male   | South     | Huye     | Nyamata | Rugezi   | muhirwajohn@gmailcom | 0788809899       |
+| 1990 | Muhirwa    | John      | Male   | South     | Huye     | Nyamata | Rugezi   | muhirwajohn@gmailcom | 0788809899       |
+| 1957 | Kalisa     | Bosco     | Male   | South     | Huye     | Karama  | Mubenzi  | kalisabosco@gmailcom | 072234219        |
+| 1957 | Uwera      | Annetty   | Male   | Female    | Huye     | Ngoma   | Tumba    | uweraannettyo@gmailc | 078881098        |
+| 1957 | Keza       | Angelique | Female | South     | Huye     | Ngoma   | Rango    | kezaangeliqueo@gmail | 0780912321       |
+| 1800 | Tuyizere   | Alex      | Male   | West      | Rubavu   | Karenge | Mukoto   | tuyizerealex@gmailco | 0790989041       |
+| 2008 | Muremyi    | Anaclet   | Male   | Kigali    | Gasabo   | Murambi | cyabingo | muremyianaclet@gmail | 0789091211       |
+| 2016 | Murenzi    | Annah     | Female | Nyagatare | Kamoni   | Karera  | Rwesero  | annahmurenzi@gmailco | 0730134009       |
++------+------------+-----------+--------+-----------+----------+---------+----------+----------------------+------------------+
+8 rows in set (0.00 sec)
+
+
+mysql> insert into ngoma value('1956','Kamaliza','Betty','Female','West','Nyamasheke','Nyaruguru','Murambi','kamalizaBetty@gmail.com','0798120901');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+-----------+------------+-----------+----------+----------------------+------------------+
+| Id   | First_Name | Last_Name | Gender | Province  | District   | Sector    | Cell     | Email                | Telephone_Number |
++------+------------+-----------+--------+-----------+------------+-----------+----------+----------------------+------------------+
+| 1870 | Kamaliza   | Betty     | Female | East      | Kamonyi    | Rwenzeri  | Karama   | uwasemarie@gmail.com | 0788909112       |
+| 1980 | Kamaliza   | Betty     | Female | West      | Nyamasheke | Nyaruguru | Murambi  | kamalizaBetty@gmail. | 0798120901       |
+| 1957 | Kalisa     | Bosco     | Male   | South     | Huye       | Karama    | Mubenzi  | kalisabosco@gmailcom | 072234219        |
+| 1957 | Uwera      | Annetty   | Male   | Female    | Huye       | Ngoma     | Tumba    | uweraannettyo@gmailc | 078881098        |
+| 1957 | Keza       | Angelique | Female | South     | Huye       | Ngoma     | Rango    | kezaangeliqueo@gmail | 0780912321       |
+| 1800 | Tuyizere   | Alex      | Male   | West      | Rubavu     | Karenge   | Mukoto   | tuyizerealex@gmailco | 0790989041       |
+| 2008 | Muremyi    | Anaclet   | Male   | Kigali    | Gasabo     | Murambi   | cyabingo | muremyianaclet@gmail | 0789091211       |
+| 2016 | Murenzi    | Annah     | Female | Nyagatare | Kamoni     | Karera    | Rwesero  | annahmurenzi@gmailco | 0730134009       |
+| 1980 | Uwera      | Claudine  | Female | Nort      | Rulindo    | Mugesera  | Runaba   | Uweraclaudine@gmail. | 0788901210       |
+| 1980 | Uwera      | Claudine  | Female | Kigali    | Nyamagabe  | Kabuye    | Karama   | kamalibenjamin@gmail | 0791231097       |
+| 1956 | Kamaliza   | Betty     | Female | West      | Nyamasheke | Nyaruguru | Murambi  | kamalizaBetty@gmail. | 0798120901       |
++------+------------+-----------+--------+-----------+------------+-----------+----------+----------------------+------------------+
+11 rows in set (0.00 sec)
+
+
+
+mysql> delete from ngoma where First_Name='kamaliza' and sector='nyaruguru';
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+-----------+-----------+----------+----------+----------------------+------------------+
+| Id   | First_Name | Last_Name | Gender | Province  | District  | Sector   | Cell     | Email                | Telephone_Number |
++------+------------+-----------+--------+-----------+-----------+----------+----------+----------------------+------------------+
+| 1870 | Kamaliza   | Betty     | Female | East      | Kamonyi   | Rwenzeri | Karama   | uwasemarie@gmail.com | 0788909112       |
+| 1957 | Kalisa     | Bosco     | Male   | South     | Huye      | Karama   | Mubenzi  | kalisabosco@gmailcom | 072234219        |
+| 1957 | Uwera      | Annetty   | Male   | Female    | Huye      | Ngoma    | Tumba    | uweraannettyo@gmailc | 078881098        |
+| 1957 | Keza       | Angelique | Female | South     | Huye      | Ngoma    | Rango    | kezaangeliqueo@gmail | 0780912321       |
+| 1800 | Tuyizere   | Alex      | Male   | West      | Rubavu    | Karenge  | Mukoto   | tuyizerealex@gmailco | 0790989041       |
+| 2008 | Muremyi    | Anaclet   | Male   | Kigali    | Gasabo    | Murambi  | cyabingo | muremyianaclet@gmail | 0789091211       |
+| 2016 | Murenzi    | Annah     | Female | Nyagatare | Kamoni    | Karera   | Rwesero  | annahmurenzi@gmailco | 0730134009       |
+| 1980 | Uwera      | Claudine  | Female | Nort      | Rulindo   | Mugesera | Runaba   | Uweraclaudine@gmail. | 0788901210       |
+| 1980 | Uwera      | Claudine  | Female | Kigali    | Nyamagabe | Kabuye   | Karama   | kamalibenjamin@gmail | 0791231097       |
++------+------------+-----------+--------+-----------+-----------+----------+----------+----------------------+------------------+
+9 rows in set (0.00 sec)
+
+
+mysql> select Id, Sector, Cell from ngoma;
++------+-----------+----------+
+| Id   | Sector    | Cell     |
++------+-----------+----------+
+| 1870 | Rwenzeri  | Karama   |
+| 1957 | Karama    | Mubenzi  |
+| 1957 | Ngoma     | Tumba    |
+| 1957 | Ngoma     | Rango    |
+| 1800 | Karenge   | Mukoto   |
+| 2008 | Murambi   | cyabingo |
+| 2016 | Karera    | Rwesero  |
+| 1980 | Mugesera  | Runaba   |
+| 1980 | Kabuye    | Karama   |
+| 1934 | Rwantambi | Murambi  |
++------+-----------+----------+
+10 rows in set (0.00 sec)
+
+
+mysql> alter table ngoma add Activity varchar(20);
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+-----------+-----------+-----------+----------+----------------------+------------------+----------+
+| Id   | First_Name | Last_Name | Gender | Province  | District  | Sector    | Cell     | Email                | Telephone_Number | Activity |
++------+------------+-----------+--------+-----------+-----------+-----------+----------+----------------------+------------------+----------+
+| 1870 | Kamaliza   | Betty     | Female | East      | Kamonyi   | Rwenzeri  | Karama   | uwasemarie@gmail.com | 0788909112       | NULL     |
+| 1957 | Kalisa     | Bosco     | Male   | South     | Huye      | Karama    | Mubenzi  | kalisabosco@gmailcom | 072234219        | NULL     |
+| 1957 | Uwera      | Annetty   | Male   | Female    | Huye      | Ngoma     | Tumba    | uweraannettyo@gmailc | 078881098        | NULL     |
+| 1957 | Keza       | Angelique | Female | South     | Huye      | Ngoma     | Rango    | kezaangeliqueo@gmail | 0780912321       | NULL     |
+| 1800 | Tuyizere   | Alex      | Male   | West      | Rubavu    | Karenge   | Mukoto   | tuyizerealex@gmailco | 0790989041       | NULL     |
+| 2008 | Muremyi    | Anaclet   | Male   | Kigali    | Gasabo    | Murambi   | cyabingo | muremyianaclet@gmail | 0789091211       | NULL     |
+| 2016 | Murenzi    | Annah     | Female | Nyagatare | Kamoni    | Karera    | Rwesero  | annahmurenzi@gmailco | 0730134009       | NULL     |
+| 1980 | Uwera      | Claudine  | Female | Nort      | Rulindo   | Mugesera  | Runaba   | Uweraclaudine@gmail. | 0788901210       | NULL     |
+| 1980 | Uwera      | Claudine  | Female | Kigali    | Nyamagabe | Kabuye    | Karama   | kamalibenjamin@gmail | 0791231097       | NULL     |
+| 1934 | Mugeni     | Ange      | Female | South     | Ngoma     | Rwantambi | Murambi  | mugeniange@gmail.com | 0788098880       | NULL     |
++------+------------+-----------+--------+-----------+-----------+-----------+----------+----------------------+------------------+----------+
+10 rows in set (0.00 sec)
+
+
+mysql> update ngoma set Activity='Agriculture' where Id=1870;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set Activity='Mining' where Id=1957;
+Query OK, 3 rows affected (0.00 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update ngoma set Activity='Faming' where Id=1800;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set Activity='Fishing' where Id=2016;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update ngoma set Activity='Agriculture' where Id=1980;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update ngoma set Activity='Teaching' where Id=1934;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+-----------+-----------+-----------+----------+----------------------+------------------+-------------+
+| Id   | First_Name | Last_Name | Gender | Province  | District  | Sector    | Cell     | Email                | Telephone_Number | Activity    |
++------+------------+-----------+--------+-----------+-----------+-----------+----------+----------------------+------------------+-------------+
+| 1870 | Kamaliza   | Betty     | Female | East      | Kamonyi   | Rwenzeri  | Karama   | uwasemarie@gmail.com | 0788909112       | Agriculture |
+| 1957 | Kalisa     | Bosco     | Male   | South     | Huye      | Karama    | Mubenzi  | kalisabosco@gmailcom | 072234219        | Mining      |
+| 1957 | Uwera      | Annetty   | Male   | Female    | Huye      | Ngoma     | Tumba    | uweraannettyo@gmailc | 078881098        | Mining      |
+| 1957 | Keza       | Angelique | Female | South     | Huye      | Ngoma     | Rango    | kezaangeliqueo@gmail | 0780912321       | Mining      |
+| 1800 | Tuyizere   | Alex      | Male   | West      | Rubavu    | Karenge   | Mukoto   | tuyizerealex@gmailco | 0790989041       | Faming      |
+| 2008 | Muremyi    | Anaclet   | Male   | Kigali    | Gasabo    | Murambi   | cyabingo | muremyianaclet@gmail | 0789091211       | NULL        |
+| 2016 | Murenzi    | Annah     | Female | Nyagatare | Kamoni    | Karera    | Rwesero  | annahmurenzi@gmailco | 0730134009       | Fishing     |
+| 1980 | Uwera      | Claudine  | Female | Nort      | Rulindo   | Mugesera  | Runaba   | Uweraclaudine@gmail. | 0788901210       | Agriculture |
+| 1980 | Uwera      | Claudine  | Female | Kigali    | Nyamagabe | Kabuye    | Karama   | kamalibenjamin@gmail | 0791231097       | Agriculture |
+| 1934 | Mugeni     | Ange      | Female | South     | Ngoma     | Rwantambi | Murambi  | mugeniange@gmail.com | 0788098880       | Teaching    |
++------+------------+-----------+--------+-----------+-----------+-----------+----------+----------------------+------------------+-------------+
+10 rows in set (0.00 sec)
+
+
+
+mysql> Alter table ngoma drop Province;
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+-----------+-----------+----------+----------------------+------------------+-------------+
+| Id   | First_Name | Last_Name | Gender | District  | Sector    | Cell     | Email                | Telephone_Number | Activity    |
++------+------------+-----------+--------+-----------+-----------+----------+----------------------+------------------+-------------+
+| 1870 | Kamaliza   | Betty     | Female | Kamonyi   | Rwenzeri  | Karama   | uwasemarie@gmail.com | 0788909112       | Agriculture |
+| 1957 | Kalisa     | Bosco     | Male   | Huye      | Karama    | Mubenzi  | kalisabosco@gmailcom | 072234219        | Mining      |
+| 1957 | Uwera      | Annetty   | Male   | Huye      | Ngoma     | Tumba    | uweraannettyo@gmailc | 078881098        | Mining      |
+| 1957 | Keza       | Angelique | Female | Huye      | Ngoma     | Rango    | kezaangeliqueo@gmail | 0780912321       | Mining      |
+| 1800 | Tuyizere   | Alex      | Male   | Rubavu    | Karenge   | Mukoto   | tuyizerealex@gmailco | 0790989041       | Faming      |
+| 2008 | Muremyi    | Anaclet   | Male   | Gasabo    | Murambi   | cyabingo | muremyianaclet@gmail | 0789091211       | NULL        |
+| 2016 | Murenzi    | Annah     | Female | Kamoni    | Karera    | Rwesero  | annahmurenzi@gmailco | 0730134009       | Fishing     |
+| 1980 | Uwera      | Claudine  | Female | Rulindo   | Mugesera  | Runaba   | Uweraclaudine@gmail. | 0788901210       | Agriculture |
+| 1980 | Uwera      | Claudine  | Female | Nyamagabe | Kabuye    | Karama   | kamalibenjamin@gmail | 0791231097       | Agriculture |
+| 1934 | Mugeni     | Ange      | Female | Ngoma     | Rwantambi | Murambi  | mugeniange@gmail.com | 0788098880       | Teaching    |
++------+------------+-----------+--------+-----------+-----------+----------+----------------------+------------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql>
+
+
+mysql> select from ngoma where Id=1980 and Cell='karama';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from ngom where Id=1980 and Cell='karama'' at line 1
+mysql> select *from ngoma where Id=1980 and Cell='karama';
++------+------------+-----------+--------+-----------+--------+--------+----------------------+------------------+-------------+
+| Id   | First_Name | Last_Name | Gender | District  | Sector | Cell   | Email                | Telephone_Number | Activity    |
++------+------------+-----------+--------+-----------+--------+--------+----------------------+------------------+-------------+
+| 1980 | Uwera      | Claudine  | Female | Nyamagabe | Kabuye | Karama | kamalibenjamin@gmail | 0791231097       | Agriculture |
++------+------------+-----------+--------+-----------+--------+--------+----------------------+------------------+-------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+mysql> select *from ngoma where Id=1980 or Cell='karama';
++------+------------+-----------+--------+-----------+----------+--------+----------------------+------------------+-------------+
+| Id   | First_Name | Last_Name | Gender | District  | Sector   | Cell   | Email                | Telephone_Number | Activity    |
++------+------------+-----------+--------+-----------+----------+--------+----------------------+------------------+-------------+
+| 1870 | Kamaliza   | Betty     | Female | Kamonyi   | Rwenzeri | Karama | uwasemarie@gmail.com | 0788909112       | Agriculture |
+| 1980 | Uwera      | Claudine  | Female | Rulindo   | Mugesera | Runaba | Uweraclaudine@gmail. | 0788901210       | Agriculture |
+| 1980 | Uwera      | Claudine  | Female | Nyamagabe | Kabuye   | Karama | kamalibenjamin@gmail | 0791231097       | Agriculture |
++------+------------+-----------+--------+-----------+----------+--------+----------------------+------------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+
+mysql> alter table ngoma drop email;
+Query OK, 10 rows affected (0.02 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> select *from ngoma;
++------+------------+-----------+--------+-----------+-----------+----------+------------------+-------------+
+| Id   | First_Name | Last_Name | Gender | District  | Sector    | Cell     | Telephone_Number | Activity    |
++------+------------+-----------+--------+-----------+-----------+----------+------------------+-------------+
+| 1870 | Kamaliza   | Betty     | Female | Kamonyi   | Rwenzeri  | Karama   | 0788909112       | Agriculture |
+| 1957 | Kalisa     | Bosco     | Male   | Huye      | Karama    | Mubenzi  | 072234219        | Mining      |
+| 1957 | Uwera      | Annetty   | Male   | Huye      | Ngoma     | Tumba    | 078881098        | Mining      |
+| 1957 | Keza       | Angelique | Female | Huye      | Ngoma     | Rango    | 0780912321       | Mining      |
+| 1800 | Tuyizere   | Alex      | Male   | Rubavu    | Karenge   | Mukoto   | 0790989041       | Faming      |
+| 2008 | Muremyi    | Anaclet   | Male   | Gasabo    | Murambi   | cyabingo | 0789091211       | NULL        |
+| 2016 | Murenzi    | Annah     | Female | Kamoni    | Karera    | Rwesero  | 0730134009       | Fishing     |
+| 1980 | Uwera      | Claudine  | Female | Rulindo   | Mugesera  | Runaba   | 0788901210       | Agriculture |
+| 1980 | Uwera      | Claudine  | Female | Nyamagabe | Kabuye    | Karama   | 0791231097       | Agriculture |
+| 1934 | Mugeni     | Ange      | Female | Ngoma     | Rwantambi | Murambi  | 0788098880       | Teaching    |
++------+------------+-----------+--------+-----------+-----------+----------+------------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql>
